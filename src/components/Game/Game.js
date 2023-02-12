@@ -19,8 +19,9 @@ function Game() {
 
   return (
     <>
-      {/*<Attempts attempts={attempts} />*/}
-      <GuessResults />
+
+      <GuessResults attempts={attempts} answer={answer} />
+
       <Input attempts={attempts} setAttempts={setAttempts} />
     </>
   );
