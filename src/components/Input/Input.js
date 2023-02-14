@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ attempts, setAttempts, setHasWon, setHasFinishedGame, answer, maxGuesses }) {
+function Input({ attempts, setAttempts, setHasWon, setHasFinishedGame, answer, maxGuesses, hasFinishedGame }) {
 
   const [input, setInput] = React.useState("");
   const [guessObject, setGuessObject] = React.useState({ guess: "" });
@@ -51,6 +51,7 @@ function Input({ attempts, setAttempts, setHasWon, setHasFinishedGame, answer, m
           value={input}
           maxLength={5}
           minLength={5}
+          disabled={hasFinishedGame}
           onChange={event => {
             setInput((event.target.value).toUpperCase());
           }}

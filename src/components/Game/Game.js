@@ -8,9 +8,7 @@ import Input from "../Input";
 import GuessResults from "../GuessResults";
 import Banner from "../Banner";
 
-// Pick a random word on every pageload.
 const answer = sample(WORDS);
-// To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
 function Game() {
@@ -19,19 +17,17 @@ function Game() {
   const [hasWon, setHasWon] = React.useState(false);
   const [hasFinishedGame, setHasFinishedGame] = React.useState(false);
 
-  // const displayBanner = (hasFinishedGame) => {
-  //   if (hasFinishedGame) {
-  //     return <Banner hasFinishedGame={hasFinishedGame} hasWon={hasWon} />;
-  //   }
-  // };
-
   return (
     <>
       <GuessResults attempts={attempts} answer={answer} />
-      <Input attempts={attempts} setAttempts={setAttempts} setHasWon={setHasWon}
-             setHasFinishedGame={setHasFinishedGame} answer={answer} maxGuesses={NUM_OF_GUESSES_ALLOWED} />
-      {/*<Banner hasFinishedGame={hasFinishedGame} hasWon={hasWon} />*/}
-      {/*displayBanner(hasFinishedGame)*/}
+      <Input attempts={attempts}
+             setAttempts={setAttempts}
+             setHasWon={setHasWon}
+             setHasFinishedGame={setHasFinishedGame}
+             answer={answer}
+             maxGuesses={NUM_OF_GUESSES_ALLOWED}
+             hasFinishedGame={hasFinishedGame} />
+
       {hasFinishedGame &&
         <Banner hasFinishedGame={hasFinishedGame}
                 hasWon={hasWon}
